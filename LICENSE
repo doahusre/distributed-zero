@@ -1,3 +1,8 @@
+# This project is a modified version of the original AlphaZero Gomoku implementation by Junxiao Song.
+# Modifications made by Dhowa Husrevoglu in April 2025.
+# Repository: https://github.com/doahusre
+
+
 MIT License
 
 Copyright (c) 2017 junxiaosong

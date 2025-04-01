@@ -1,4 +1,24 @@
-## AlphaZero-Gomoku
+# Distributed-Zero
+
+This project is a modification of [Junxiao Song's AlphaZero-Gomoku implementation](https://github.com/junxiaosong/AlphaZero_Gomoku).
+
+The purpose of this modification is to **decouple the actor and learner** into independent asynchronous processes using **ZeroMQ**, enabling distributed training. Multiple actors can now self-play in parallel and send their experience data to a central learner.
+
+---
+
+## 🔧 Key Modifications
+
+- Introduced a `server.py` to act as a central message broker.
+- `actor.py` generates self-play games and sends experience asynchronously.
+- `learner.py` consumes batches of experiences and updates the policy.
+- Model weights are periodically published from the server to all actors via PUB/SUB.
+- Uses `zmq` and `asyncio` for scalable and efficient message passing.
+
+---
+
+## Original README
+
+### AlphaZero-Gomoku
 This is an implementation of the AlphaZero algorithm for playing the simple board game Gomoku (also called Gobang or Five in a Row) from pure self-play training. The game Gomoku is much simpler than Go or chess, so that we can focus on the training scheme of AlphaZero and obtain a pretty good AI model on a single PC in a few hours. 
 
 References:  
